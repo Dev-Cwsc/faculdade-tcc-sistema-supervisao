@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./css/styles.css";
 import StorageManager from "../../services/StorageManager";
-import egIMG from "./components/elogroup.png";
+import ifIMG from "./components/ifmg.png";
 
 function Login() {
   // hooks
@@ -37,7 +37,7 @@ function Login() {
       <div className="container-login">
         <div className="wrapper-login">
           <div className="container-header-form-img">
-            <img src={egIMG} className="img-elogroup" alt="EloGroup" />
+            <img src={ifIMG} className="img-ifmg" />
           </div>
           <form className="login-form" onSubmit={submitHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de cadastro */}
             <h1 className="login-form-title"> Cadastro de novo usuário </h1>

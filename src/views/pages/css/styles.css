@@ -22,14 +22,14 @@ body, html {
 .container-input {
     width: 100%;
     position: relative;
-    border-bottom: 2px solid #adadad;
+    border-bottom: 2px solid #5f5f5f;
     margin-bottom: 37px;
 }
 
 .container-input-password {
     width: 100%;
     position: relative;
-    border-bottom: 2px solid #adadad;
+    border-bottom: 2px solid #5f5f5f;
 }
 
 .container-label-password{
@@ -45,7 +45,7 @@ body, html {
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background-color: whitesmoke;
+    background-color: #34a444;
 }
 
 .container-nav-bar {
@@ -56,7 +56,7 @@ body, html {
     align-items: center;
     justify-content: center;
     padding: 70px 15px 15px 15px;
-    background-color: whitesmoke;
+    background-color: #34a444;
 }
 
 .container-form-btn {
@@ -66,30 +66,29 @@ body, html {
     padding-bottom: 13px;
 }
 
-.container-nav-bar-logo{
+.container-nav-bar-img{
     width: 300px;
     height: 70px;
     display: block;
     float: left;
+    padding: 5px;
 }
 
-.container-nav-bar-logo:hover{
+.container-nav-bar-img:hover{
     cursor: pointer;
 }
 
 .container-nav-bar-btn{
     width: 200px;
     height: 70px;
-    float: right;
-    align-items: center;
+    padding: 10px;
 }
 
 .container-nav-bar-txt-welcome{
     width: 100%;
     height: 70px;
-    display: flex;
-    text-align: right;
-    align-items: center;
+    display: auto;
+    padding: 5px;
 }
 
 .wrapper-checkboxes{
@@ -100,14 +99,15 @@ body, html {
 
 .wrapper-login {
     width: 390px;
-    background-color: #272727;
+    background-color: whitesmoke;
     padding: 77px 55px 33px 55px;
+    border-radius: 25px;
 }
 
 .wrapper-login-white {
     height: 100%;
     width: 500px;
-    background-color: whitesmoke;
+    background-color: #34a444;
     padding: 37px 55px 300px 55px;
     margin-top: 80px;
     position: fixed;
@@ -124,17 +124,6 @@ body, html {
     display: block;
     font-size: 25px;
     font-weight: bold;
-    color: whitesmoke;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 37px;
-}
-
-.login-form-title-dark {
-    font-family: Nunito, sans-serif;
-    font-weight: bold;
-    display: block;
-    font-size: 25px;
     color: #5f5f5f;
     line-height: 1.2;
     text-align: center;
@@ -143,7 +132,7 @@ body, html {
 
 .input {
     font-size: 15px;
-    color: whitesmoke;
+    color: #5f5f5f;
     line-height: 1.2;
     border: none;
     display: block;
@@ -162,14 +151,14 @@ body, html {
     top: 0;
     left: 0;
     pointer-events: none;
-    color: #adadad;
+    color: #5f5f5f;
     font-family: Nunito, sans-serif;
 }
 
 .focus-input::after {
     font-family: Nunito, sans-serif;
     font-size: 15px;
-    color: #adadad;
+    color: #5f5f5f;
     line-height: 1.2;
     content: attr(data-placeholder);
     display: block;
@@ -196,11 +185,11 @@ body, html {
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
-    background: #1822DC;
-    background: -webkit-linear-gradient(to left, #1822DC);
-    background: -o-linear-gradient(to left, #1822DC);
-    background: -moz-linear-gradient(to left, #1822DC);
-    background: linear-gradient(to left, #1822DC);
+    background: #34a444;
+    background: -webkit-linear-gradient(to left, #34a444);
+    background: -o-linear-gradient(to left, #34a444);
+    background: -moz-linear-gradient(to left, #34a444);
+    background: linear-gradient(to left, #34a444);
 }
 
 .input:focus {
@@ -223,88 +212,6 @@ body, html {
     width: 100%;
 }
 
-.input-dark {
-    font-size: 15px;
-    color: #272727;
-    line-height: 1.2;
-    border: none;
-    display: block;
-    width: 100%;
-    height: 45px;
-    background-color: transparent;
-    padding: 0 5px;
-    font-family: Nunito, sans-serif;
-}
-
-.focus-input-dark {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    color: #5f5f5f;
-    font-family: Nunito, sans-serif;
-}
-
-.focus-input-dark::after {
-    font-family: Nunito, sans-serif;
-    font-size: 15px;
-    color: #5f5f5f;
-    line-height: 1.2;
-    content: attr(data-placeholder);
-    display: block;
-    width: 100%;
-    position: absolute;
-    top: 16px;
-    left: 0px;
-    padding-left: 5px;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-}
-
-.focus-input-dark::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-    background: #1822DC;
-    background: -webkit-linear-gradient(to left, #1822DC);
-    background: -o-linear-gradient(to left, #1822DC);
-    background: -moz-linear-gradient(to left, #1822DC);
-    background: linear-gradient(to left, #1822DC);
-}
-
-.input-dark:focus {
-    outline: 0;
-}
-
-.input-dark:focus+.focus-input-dark::after {
-    top: -15px;
-}
-
-.input-dark:focus+.focus-input-dark::before {
-    width: 100%;
-}
-
-.has-val-dark+.focus-input-dark::after {
-    top: -15px;
-}
-
-.has-val-dark+.focus-input-dark::before {
-    width: 100%;
-}
-
 .form-btn {
     font-size: 15px;
     border: none;
@@ -316,12 +223,13 @@ body, html {
     align-items: center;
     width: 100%;
     height: 50px;
-    background: #1822DC;
+    background: #34a444;
+    border-radius: 25px;
 }
 
 .form-btn:hover {
     cursor: pointer;
-    background: #13199b;
+    background: #297c36;
 }
 
 .text-center {
@@ -333,7 +241,7 @@ body, html {
 
 .txt1 {
     font-size: 14px;
-    color: #adadad;
+    color: #5f5f5f;
     line-height: 1.5;
     padding-right: 5px;
 }
@@ -345,27 +253,29 @@ body, html {
     padding-right: 5px;
 }
 
-.txt1-darker {
-    font-size: 14px;
-    color: #5f5f5f;
-    line-height: 1.5;
-    padding-right: 5px;
-}
-
 .txt2 {
     font-size: 14px;
-    color: #2f38d4;
+    color: #34a444;
     line-height: 1.5;
     text-decoration: none;
 }
 
-.img-elogroup{
-    width: 100%;
-    height: 100%;
+.img-ifmg{
+    width: auto;
+    height: auto;
+    max-width:280px;
+    max-height:70px;
+}
+
+.img-ifmg-nav{
+    width: auto;
+    height: auto;
+    max-width:300px;
+    max-height:70px;
 }
 
 .nav-bar{
-    background-color: #272727;
+    background-color: whitesmoke;
     position: fixed;
     width: 100%;
     overflow: hidden; /* Esconde a scrollbar na barra de navegação */
@@ -380,7 +290,7 @@ body, html {
     font-family: Nunito, sans-serif;
     font-size: 20px;
     padding: 20px; 
-    color: whitesmoke;
+    color: #5f5f5f;
     align-self: center;
     display: block;
     font-weight: bold;
@@ -394,17 +304,18 @@ body, html {
     color: whitesmoke;
     line-height: 1.2;
     text-transform: uppercase;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-    background: #1822DC;
-    padding: 10px;
+    height: 50px;
+    background: #34a444;
+    border-radius: 25px;
 }
 
 .nav-bar-btn:hover {
     cursor: pointer;
-    background: #13199b;
+    background: #297c36;
 }
 
 .checkbox {
@@ -419,44 +330,4 @@ body, html {
     line-height: 1.5;
     padding-right: 5px;
     cursor: pointer;
-}
-
-.table{
-    width: 100%;
-    height: 50px;
-    border-collapse: collapse;
-    border: 1px solid;
-    border-color: #272727;
-    padding: 10px;
-    table-layout: fixed
-}
-
-.table-cell{
-    width: 100%;
-    height: 50px;
-    border-collapse: collapse;
-    border: 1px solid;
-    border-color: #272727;
-    padding: 10px;
-    font-size: 15px;
-    background-color: whitesmoke;
-    font-size: 11px;
-    text-align: center;
-    font-family: Nunito, sans-serif;
-}
-
-.table-cell:hover{
-    background-color: #dadada;
-}
-
-.table-header-txt {
-    font-size: 12px;
-    color: whitesmoke;
-    text-transform: uppercase;
-    border: 1px solid;
-    border-color: #272727;
-    padding: 10px;
-    font-family: Nunito, sans-serif;
-    text-align: center;
-    background-color: #1822DC;
 }

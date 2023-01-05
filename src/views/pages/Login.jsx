@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./css/styles.css";
 import StorageManager from "../../services/StorageManager";
-import egIMG from "./components/elogroup.png";
+import ifIMG from "./components/ifmg-completa.png";
 
 function Login() {
   // hooks
@@ -14,7 +14,7 @@ function Login() {
       alert("Preencha todos os campos.");
       return;
     } else if (StorageManager.setAuthenticationSS(login, password)) { // Tenta fazer a autenticação do usuário
-      window.location.href = "/Leads"; // Se a autenticação for bem sucedida, redireciona para a página de manutenção de leads
+      window.location.href = "/monitor"; // Se a autenticação for bem sucedida, redireciona para a página de manutenção de leads
     } else {
       alert("Login ou senha incorretos.");
     }
@@ -25,10 +25,10 @@ function Login() {
       <div className="container-login">
         <div className="wrapper-login">
           <div className="container-header-form-img">
-            <img src={egIMG} className="img-elogroup" alt="EloGroup" />
+            <img src={ifIMG} className="img-ifmg" />
           </div>
           <form className="login-form" onSubmit={loginHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de login */}
-            <h1 className="login-form-title"> Manutenção de Leads </h1>
+            <h1 className="login-form-title"> Sistema de monitoramento de cargas </h1>
             <div className="container-input">
               <input
                 className={login !== "" ? "has-val input" : "input"}

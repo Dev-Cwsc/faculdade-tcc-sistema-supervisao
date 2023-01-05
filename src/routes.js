@@ -7,8 +7,7 @@ import AuthenticationCheck from "./controller/AuthenticationController";
 
 import Login from "./views/pages/Login"
 import NewUser from "./views/pages/NewUser"
-import Leads from "./views/pages/Leads"
-import NewLead from "./views/pages/NewLead"
+import Monitor from "./views/pages/Monitor"
 
 const AppRoutes = () => {
   return (
@@ -17,8 +16,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Login />} /> {/* "/" é o caminho padrão, ou seja, a página de login será renderizada quando acessar a URL "/" */}
         <Route path="/newUser" element={<NewUser />} />
         <Route element={<AuthenticationCheck />}> {/* Os componentes "Leads" e "NewLead" só serão renderizados se o usuário estiver autenticado */}
-          <Route path="/leads" element={<Leads />} />
-          <Route path="/newLead" element={<NewLead />} />
+          <Route path="/monitor" element={<Monitor />} />
         </Route>
       </Routes>
     </Router>
