@@ -8,7 +8,9 @@ function Monitor() {
   return (
     <div className="container">
       <Navbar />
-      <h1 className="monitor-title"> Consumo atual </h1>
+      <div className="container-monitor">
+        <div className="container-elements"></div>
+      </div>
     </div>
   );
 }
