@@ -1,5 +1,34 @@
 {
-    "devices": [],
-    "users": [],
-    "data": []
+  "devices": [
+    {
+      "id": "123456789"
+    },
+    {
+      "id": "987654321"
+    }
+  ],
+  "users": [
+    {
+      "login": "carlos",
+      "senha": "#carlos123"
+    },
+    {
+      "login": "admin",
+      "senha": "admin"
+    }
+  ],
+  "last-update": [
+    {
+      "id": "123456789",
+      "device-name": "testando api",
+      "measured-current": "7",
+      "time": "00:00:00"
+    },
+    {
+      "id": "987654321",
+      "device-name": "teste2",
+      "measured-current": "8.7",
+      "time": "00:00:00"
+    }
+  ]
 }
