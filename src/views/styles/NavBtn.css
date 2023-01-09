@@ -1,0 +1,20 @@
+.nav-btn {
+    font-size: 15px;
+    border: none;
+    color: whitesmoke;
+    line-height: 1.2;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    background: #34a444;
+    border-radius: 25px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.nav-btn:hover{
+    cursor: pointer;
+    background: #297c36;
+}

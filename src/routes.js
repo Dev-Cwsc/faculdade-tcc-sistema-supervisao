@@ -8,6 +8,7 @@ import AuthenticationCheck from "./controller/AuthenticationController";
 import Login from "./views/pages/Login"
 import NewUser from "./views/pages/NewUser"
 import Monitor from "./views/pages/Monitor"
+import NewDevice from "./views/pages/NewDevice"
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/newUser" element={<NewUser />} />
         <Route element={<AuthenticationCheck />}> {/* Os componentes "Leads" e "NewLead" só serão renderizados se o usuário estiver autenticado */}
           <Route path="/monitor" element={<Monitor />} />
+          <Route path="/newDevice" element={<NewDevice />} />
         </Route>
       </Routes>
     </Router>
