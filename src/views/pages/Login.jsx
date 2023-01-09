@@ -19,6 +19,7 @@ function Login() {
       window.location.href = "/monitor"; // Se a autenticação for bem sucedida, redireciona para a página de manutenção de leads
     } else {
       alert("Login ou senha incorretos.");
+      return;
     }
   }
 

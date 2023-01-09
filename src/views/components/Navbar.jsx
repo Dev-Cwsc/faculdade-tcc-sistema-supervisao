@@ -8,7 +8,6 @@ const Navbar = () => {
 
     const exitHandler = () => { // Função manipuladora que é acionada ao clicar no botão "Sair"
         StorageManager.clearAuthenticationSS(); // Limpa o armazenamento de autenticação
-        window.location.href = "/"; // Redireciona para a página de login
     }
 
     const getPathLocation = () => { // Retorna o caminho atual
@@ -22,11 +21,13 @@ const Navbar = () => {
             <ul>
                 <h1> Bem vindo(a) ao Sistema de Monitoramento de Cargas, {`${user.toUpperCase()}!`} </h1> {/**() => window.location.href = getWindowLocation() === "http://localhost:3000/monitor" ? "newDevice" : "/monitor" */}
                 <NavBtn
-                    onClick={() => window.location.href = getPathLocation() === "/monitor" ? "/newDevice" : "/monitor"}
+                    to={getPathLocation() === "/monitor" ? "/newDevice" : "/monitor"}
                     name="nav-redirect-btn"
                     btnLabel={getPathLocation() === "/monitor" ? "Novo Dispositivo" : "Cancelar"}
                 />
+                
                 <NavBtn
+                    to="/"
                     onClick={exitHandler}
                     name="nav-exit-btn"
                     btnLabel={"Sair"}
