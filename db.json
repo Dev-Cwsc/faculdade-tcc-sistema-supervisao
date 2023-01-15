@@ -9,12 +9,14 @@
   ],
   "users": [
     {
-      "login": "carlos",
-      "senha": "#carlos123"
+      "id": 1,
+      "login": "admin",
+      "password": "$udo1234"
     },
     {
-      "login": "admin",
-      "senha": "admin"
+      "id": 2,
+      "login": "carlos",
+      "password": "#carlos123"
     }
   ],
   "last-update": [

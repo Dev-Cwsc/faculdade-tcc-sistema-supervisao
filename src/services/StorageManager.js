@@ -1,87 +1,67 @@
 /**
  * Classe responsável por gerenciar o armazenamento de dados.
  */
+import axios from "axios";
 
 class StorageManager {
-    static userExists (login){
-        const users = this.getDataLS("users");
-        if(users===null){
-            window.alert("Ainda não há usuários cadastrados."); // Se não existirem usuários cadastrados no localStorage, o usuário será avisado
-            return false;
-        } else {
-            return users.find(object => object.login === login) ? true : false; // Retorna true se encontrar um usuário com o login especificado, false caso contrário
-        }
+
+    static async getJSONServerData(key) {
+        const URL = "http://localhost:5000/" + key;
+        const DATA = await axios.get(URL).then(response => response.data)
+            .catch(error => {
+                console.error(error);
+            });
+        return DATA;
     }
 
-    static getUserLS (login, password) { // Retorna o usuário com o login e senha especificados, ou false caso contrário
-        const users = this.getDataLS("users");
-        return this.userExists(login) ? users.find(object => object.login === login && object.password === password) : false;
-    }
-    
-    static getDataLS (key) {
-        const data = JSON.parse(localStorage.getItem(key)); // JSON.parse interpreta o JSON e transforma em objeto
-        return data;
+    static async setJSONServerData(key, data) {
+        const URL = "http://localhost:5000/" + key;
+        await axios.post(URL,
+            data
+        )
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
     }
 
-    static setUserLS (login, password) {
-        let users = [];
-        if (this.getDataLS("users")) { // Se já existirem usuários cadastrados no localSotrage, eles serão armazenados em um array
-            users = this.getDataLS("users");
-            if(this.userExists(login)) { // Se o login já existir, significa que o usuário já está cadastrado
+    static async getUserFromDB(login, password) { // Retorna o usuário com o login e senha especificados, ou false caso contrário
+        const USERS = await this.getJSONServerData("users");
+        return JSON.stringify(USERS) === "[]" ? false : USERS.find(object => object.login === login && object.password === password);
+    }
+
+    static async registerUser(login, password) {
+        const USERS = await this.getJSONServerData("users");
+        if (JSON.stringify(USERS) !== "[]") {
+            if (USERS.find(object => object.login === login)) {
                 alert("Já existe um usuário cadastrado com esse login.");
                 return false;
             }
         }
-        users.push({"login": login, "password": password});
-        localStorage.setItem("users", JSON.stringify(users)); // JSON.stringfy converte o objeto em string
+        await this.setJSONServerData("users", { "id": 0, "login": login, "password": password });
         return true;
     }
 
-    static setLeadsLS (leadName, phone, email, rpa, digitalProduct, analytics, bpm) {
-        let leads = [];
-        if (this.getDataLS("leads")) { // Se já existirem leads cadastrados no localSotrage, eles serão armazenados em um array
-            leads = this.getDataLS("leads");
-        }
-        leads.push({"name": leadName, "phone": phone, "email": email, "oportunities": rpa, digitalProduct, analytics, bpm, "status": "Cliente em potencial"});
-        localStorage.setItem("leads", JSON.stringify(leads));
-        return true;
-    }
-
-    static getLeadsLS () { // Retorna todos os leads armazenados no localStorage
-        const leads = this.getDataLS("leads");
-        return leads;
-    }
-
-    static updateStateLeadLS (id) { // Atualiza o status do lead no localStorage
-        let leads;
-        if (leads = this.getDataLS("leads")){
-            if(leads[id].status==="Cliente em potencial"){
-                leads[id].status = "Dados confirmados";
-            } else if (leads[id].status==="Dados confirmados"){
-                leads[id].status = "Reunião agendada";
-            }
-            localStorage.setItem("leads", JSON.stringify(leads));
-        }
-    }
-
-    static setAuthenticationSS (login, password) {
-        const user = this.getUserLS(login, password); // Busca o usuário no localStorage
-        if (user) { // Se o usuário existir, ele será armazenado no sessionStorage
+    static async setAuthenticationSS(login, password) {
+        const USER = await this.getUserFromDB(login, password); // Busca o usuário no banco de dados. Se não encontrou retorna false, se encotrou retorna o objeto
+        if (USER) { // Se o usuário existir, ele será armazenado no sessionStorage
             sessionStorage.setItem("authenticated", JSON.stringify(login));
             return true; // Retorna true para confirmar que o usuário foi autenticado
         }
-        return false; // Retorna false se o usuário não existir no localStorage
+        return false; // Retorna false se o usuário não existir no banco de dados
     }
 
-    static getAuthenticationSS () {
+    static getAuthenticationSS() {
         return JSON.parse(sessionStorage.getItem("authenticated")) ? true : false; // Retorna true se houver um usuário estiver autenticado no momento, false caso contrário
     }
 
-    static clearAuthenticationSS () {
+    static clearAuthenticationSS() {
         sessionStorage.clear(); // Limpa o sessionStorage
     }
 
-    static getLoggedUser () {
+    static getLoggedUser() {
         return JSON.parse(sessionStorage.getItem("authenticated")); // Retorna o login do usuário autenticado
     }
 }

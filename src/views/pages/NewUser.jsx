@@ -12,7 +12,7 @@ function Login() {
   const [cnfPassword, setCnfPassword] = useState(""); // Estado de confirmação de senha
   const regexTest = RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"); // Regex para testar a senha
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault(); // Evita que a página seja recarregada
     if (login === '' || password === '' || cnfPassword === '') { // Verifica se todos os campos estão preenchidos
       alert("Preencha todos os campos."); // Se não estiverem, exibe uma mensagem de erro
@@ -23,7 +23,7 @@ function Login() {
     } else if (!regexTest.test(password)) { // Se a senha não estiver no padrão
       alert("A senha deve conter pelo menos 8 caracteres, incluindo caracteres especiais, letras e números."); // Exibe uma mensagem de erro
       return;
-    } else if (StorageManager.setUserLS(login, password)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
+    } else if (await StorageManager.registerUser(login, password)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
       alert('Usuário e senha cadastrados com sucesso!'); // Exibe uma mensagem de sucesso
       setLogin(""); // Limpa os campos
       setPassword("");

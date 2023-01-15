@@ -10,12 +10,12 @@ function Login() {
   const [login, setLogin] = useState(""); // Conforme o usuário digita, atualiza o campo de login
   const [password, setPassword] = useState(""); // Conforme o usuário digita, atualiza o campo de senha
 
-  const loginHandler = (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
     if (login === '' || password === '') { // Verifica se todos os campos estão preenchidos
       alert("Preencha todos os campos.");
       return;
-    } else if (StorageManager.setAuthenticationSS(login, password)) { // Tenta fazer a autenticação do usuário
+    } else if (await StorageManager.setAuthenticationSS(login, password)) { // Tenta fazer a autenticação do usuário
       window.location.href = "/monitor"; // Se a autenticação for bem sucedida, redireciona para a página de manutenção de leads
     } else {
       alert("Login ou senha incorretos.");
@@ -26,7 +26,7 @@ function Login() {
   return (
     <div className="container-login">
       <div className="wrapper-login">
-        <img src={process.env.PUBLIC_URL + '/images/ifmg-completa.png'} className="img-ifmg" alt="IFMG"/>
+        <img src={process.env.PUBLIC_URL + '/images/ifmg-completa.png'} className="img-ifmg" alt="IFMG" />
         <form onSubmit={loginHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de login */}
           <h1 className="login-form-title"> Sistema de Monitoramento de Cargas </h1>
           <Input
@@ -46,7 +46,7 @@ function Login() {
           />
           <div className="form-input-spacing"></div>
           <div className="form-input-spacing"></div>
-          <FormBtn name="Login"/>
+          <FormBtn name="Login" />
           <div className="container-label-cadastro">
             <span className="txt-label-cadastro"> Não possui cadastro? </span>
             <Link className="txt-link-cadastro" to="/newUser">Cadastrar</Link>
