@@ -44,6 +44,16 @@ class StorageManager {
         return true;
     }
 
+    static async registerDevice(id, name, installation){
+        const DEVICES = await this.getJSONServerData("devices");
+        if (DEVICES.find(object => object.id === id)) {
+            alert("Já existe um dispositivo cadastrado com esse id.");
+            return false;
+        }
+        await this.setJSONServerData("devices", { "id": id, "device-name": name, "installation-name": installation });
+        return true;
+    }
+
     static async setAuthenticationSS(login, password) {
         const USER = await this.getUserFromDB(login, password); // Busca o usuário no banco de dados. Se não encontrou retorna false, se encotrou retorna o objeto
         if (USER) { // Se o usuário existir, ele será armazenado no sessionStorage

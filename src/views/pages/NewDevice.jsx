@@ -1,28 +1,29 @@
 import "../styles/pages.css";
-//import { useState } from "react";
 import { useState } from "react";
 import StorageManager from "../../services/StorageManager";
 import Navbar from "../components/Navbar";
 import Input from "../components/Input";
 import FormBtn from "../components/FormBtn";
+import SelectionMenu from "../components/SelectionMenu";
 
 function NewDevice() {
   // hooks
-  const [id, setLogin] = useState(""); // Estado de login
-  const [name, setPassword] = useState(""); // Estado de senha
+  const [id, setId] = useState(""); // Estado de login
+  const [name, setDeviceName] = useState(""); // Estado de senha
+  const [installation, setDeviceInstallation] = useState("");
 
   const submitHandler = async (e) => {
     e.preventDefault(); // Evita que a página seja recarregada
     if (id === '' || name === '') { // Verifica se todos os campos estão preenchidos
       alert("Preencha todos os campos."); // Se não estiverem, exibe uma mensagem de erro
       return;
-    } else if (await StorageManager.registerUser(id, name)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
-      alert('Usuário e senha cadastrados com sucesso!'); // Exibe uma mensagem de sucesso
-      setLogin(""); // Limpa os campos
-      setPassword("");
-      window.location.href = "/"; // Redireciona para a página principal
+    } else if (await StorageManager.registerDevice(id, name, installation)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
+      alert("Dispositivo cadastrado com sucesso!"); // Exibe uma mensagem de sucesso
+      setId(""); // Limpa os campos
+      setDeviceName("");
+      window.location.href = "/monitor"; // Redireciona para a página principal
     } else { // Se não conseguir fazer o cadastro corretamente exibe uma mensagem de erro
-      alert('Erro ao cadastrar usuário e senha');
+      alert("Erro ao tentar cadastrar o dispositivo.");
     }
   }
 
@@ -35,26 +36,24 @@ function NewDevice() {
             <h1 className="login-form-title"> Cadastro de novo dispositivo </h1>
             <Input
               type="text"
-              name="login-input-sign-up"
+              name="device-id-input"
               className={id}
-              onChange={(e) => setLogin(e.target.value)}
+              onChange={(e) => setId(e.target.value)}
               placeholder="ID do dispositivo *"
             />
             <div className="form-input-spacing"></div>
             <Input
-              type="password"
-              name="password-input-sign-up"
+              type="text"
+              name="device-name-input"
               className={name}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Senha *"
+              onChange={(e) => setDeviceName(e.target.value)}
+              placeholder="Nome do dispositivo *"
             />
             <div className="form-input-spacing"></div>
-            <Input
-              type="password"
-              name="password-cnf-input-sign-up"
-              className={name}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Confirme sua senha *"
+            <SelectionMenu
+              name="device-installation-select"
+              labelName="Escolha a instalação: "
+              onChange={(e) => setDeviceInstallation(e.target.value)}
             />
             <div className="form-input-spacing"></div>
             <div className="form-input-spacing"></div>

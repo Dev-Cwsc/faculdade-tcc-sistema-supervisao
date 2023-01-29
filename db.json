@@ -1,10 +1,14 @@
 {
   "devices": [
     {
-      "id": "123456789"
+      "id": "123456789",
+      "device-name": "testando api",
+      "installation-name": "biblioteca"
     },
     {
-      "id": "987654321"
+      "id": "987654321",
+      "device-name": "teste2",
+      "installation-name": "refeitorio"
     }
   ],
   "users": [
@@ -23,13 +27,17 @@
     {
       "id": "123456789",
       "device-name": "testando api",
-      "measured-current": "7",
+      "installation-name": "biblioteca",
+      "measured-current-ch1": "5",
+      "measured-current-ch2": "2",
       "time": "00:00:00"
     },
     {
       "id": "987654321",
       "device-name": "teste2",
-      "measured-current": "8.7",
+      "installation-name": "refeitorio",
+      "measured-current-ch1": "6",
+      "measured-current-ch2": "2.7",
       "time": "00:00:00"
     }
   ]
