@@ -12,7 +12,7 @@ function Login() {
 
   const loginHandler = async (e) => {
     e.preventDefault();
-    if (login === '' || password === '') { // Verifica se todos os campos estão preenchidos
+    if (login === "" || password === "") { // Verifica se todos os campos estão preenchidos
       alert("Preencha todos os campos.");
       return;
     } else if (await StorageManager.setAuthenticationSS(login, password)) { // Tenta fazer a autenticação do usuário
@@ -26,7 +26,7 @@ function Login() {
   return (
     <div className="container-login">
       <div className="wrapper-login">
-        <img src={process.env.PUBLIC_URL + '/images/ifmg-completa.png'} className="img-ifmg" alt="IFMG" />
+        <img src={process.env.PUBLIC_URL + "/images/ifmg-completa.png"} className="img-ifmg" alt="IFMG" />
         <form onSubmit={loginHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de login */}
           <h1 className="login-form-title"> Sistema de Monitoramento de Cargas </h1>
           <Input

@@ -14,7 +14,7 @@ function Login() {
 
   const submitHandler = async (e) => {
     e.preventDefault(); // Evita que a página seja recarregada
-    if (login === '' || password === '' || cnfPassword === '') { // Verifica se todos os campos estão preenchidos
+    if (login === "" || password === "" || cnfPassword === "") { // Verifica se todos os campos estão preenchidos
       alert("Preencha todos os campos."); // Se não estiverem, exibe uma mensagem de erro
       return;
     } else if (password !== cnfPassword) { // Verifica se as senhas são iguais
@@ -24,20 +24,20 @@ function Login() {
       alert("A senha deve conter pelo menos 8 caracteres, incluindo caracteres especiais, letras e números."); // Exibe uma mensagem de erro
       return;
     } else if (await StorageManager.registerUser(login, password)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
-      alert('Usuário e senha cadastrados com sucesso!'); // Exibe uma mensagem de sucesso
+      alert("Usuário e senha cadastrados com sucesso!"); // Exibe uma mensagem de sucesso
       setLogin(""); // Limpa os campos
       setPassword("");
       setCnfPassword("");
       window.location.href = "/"; // Redireciona para a página principal
     } else { // Se não conseguir fazer o cadastro corretamente exibe uma mensagem de erro
-      alert('Erro ao cadastrar usuário e senha');
+      alert("Erro ao cadastrar usuário e senha");
     }
   }
 
   return (
     <div className="container-login">
       <div className="wrapper-login">
-        <img src={process.env.PUBLIC_URL + '/images/ifmg-completa.png'} className="img-ifmg" alt="IFMG" />
+        <img src={process.env.PUBLIC_URL + "/images/ifmg-completa.png"} className="img-ifmg" alt="IFMG" />
         <form className="login-form" onSubmit={submitHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de cadastro */}
           <h1 className="login-form-title"> Cadastro de novo usuário </h1>
           <Input

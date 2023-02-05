@@ -32,6 +32,7 @@ html {
     justify-content: center;
     display: flex; /* Faz com que os elementos sejam mostrados um ao lado do outro */
     position: static;
+    overflow: auto;
 }
 
 .container-elements {
@@ -91,6 +92,14 @@ html {
     display: block; /* Faz com que os elementos sejam mostrados um abaixo do outro */
 }
 
+.wrapper-devices{
+    width: 500px;
+    height: 600px;
+    background-color: whitesmoke;
+    padding: 77px 55px 33px 55px;
+    border-radius: 25px;
+}
+
 .form-input-spacing {
     width: 100%;
     height: 37px;
@@ -136,10 +145,17 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
 .monitor-element:hover{
     background-color: rgb(223, 223, 223);
+}
+
+.monitor-element-spacing{
+    width: auto;
+    height: 65px;
 }
 
 .txt-element{
@@ -152,9 +168,4 @@ html {
 
 .txt-element:hover{
     cursor: pointer;
-}
-
-.monitor-element-spacing{
-    width: auto;
-    height: 65px;
 }

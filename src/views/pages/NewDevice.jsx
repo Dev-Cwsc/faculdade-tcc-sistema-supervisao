@@ -14,7 +14,7 @@ function NewDevice() {
 
   const submitHandler = async (e) => {
     e.preventDefault(); // Evita que a página seja recarregada
-    if (id === '' || name === '') { // Verifica se todos os campos estão preenchidos
+    if (id === "" || name === "") { // Verifica se todos os campos estão preenchidos
       alert("Preencha todos os campos."); // Se não estiverem, exibe uma mensagem de erro
       return;
     } else if (await StorageManager.registerDevice(id, name, installation)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
