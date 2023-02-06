@@ -2,6 +2,7 @@ import "../styles/pages.css";
 import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 //import { Link } from "react-router-dom";
+import Device from "../components/Device";
 
 function Devices() {
   // hooks
@@ -12,7 +13,7 @@ function Devices() {
       <Navbar />
       <div className="container-monitor">
         <div className="wrapper-devices">
-          <h1>{state}</h1>
+          <Device name={state} id="teste"/>
         </div>
       </div>
     </div>

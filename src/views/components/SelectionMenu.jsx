@@ -9,8 +9,8 @@ const SelectionMenu = ({ name, labelName, onChange }) => {
         <option value="biblioteca"> Biblioteca </option>
         <option value="refeitorio"> Refeitório </option>
         <option value="alojamento"> Alojamento </option>
-        <option value="predio-pedagogico"> Prédio pedagógico </option>
-        <option value="centro-convivencia"> Centro de convivência </option>
+        <option value="predio_pedagogico"> Prédio pedagógico </option>
+        <option value="centro_convivencia"> Centro de convivência </option>
       </select>
     </div>
   )

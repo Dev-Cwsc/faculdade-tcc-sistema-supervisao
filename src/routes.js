@@ -5,11 +5,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthenticationCheck from "./controller/AuthenticationController";
 
-import Login from "./views/pages/Login"
-import NewUser from "./views/pages/NewUser"
-import Monitor from "./views/pages/Monitor"
-import NewDevice from "./views/pages/NewDevice"
+import Login from "./views/pages/Login";
+import NewUser from "./views/pages/NewUser";
+import Monitor from "./views/pages/Monitor";
+import NewDevice from "./views/pages/NewDevice";
 import Devices from "./views/pages/Devices";
+import Device from "./views/components/Device";
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
           <Route path="/monitor" element={<Monitor />} />
           <Route path="/newDevice" element={<NewDevice />} />
           <Route path="/devices" element={<Devices />} />
+          <Route path="/device" element={<Device />} />
         </Route>
       </Routes>
     </Router>

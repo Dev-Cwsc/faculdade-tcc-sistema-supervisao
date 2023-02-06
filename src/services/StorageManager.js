@@ -50,7 +50,7 @@ class StorageManager {
             alert("Já existe um dispositivo cadastrado com esse id.");
             return false;
         }
-        await this.setJSONServerData("devices", { "id": id, "device-name": name, "installation-name": installation });
+        await this.setJSONServerData("devices", { "id": id, "device_name": name, "installation_name": installation });
         return true;
     }
 

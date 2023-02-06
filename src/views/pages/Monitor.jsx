@@ -1,15 +1,47 @@
 import "../styles/pages.css";
-//import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import MonitorElement from "../components/MonitorElement";
 import { useNavigate } from "react-router-dom";
+import StorageManager from "../../services/StorageManager";
 
 function Monitor() {
 
+  const [deviceData, setMonitorData] = useState({ biblioteca: "Carregando...", refeitorio: "Carregando...", alojamento: "Carregando...", predio_pedagogico: "Carregando...", centro_convivencia: "Carregando..." })
   const navigate = useNavigate();
 
   const toDevicePage = (installation) => {
     navigate("/devices", { state: installation });
-  }
+  };
+
+  const updateMonitorData = async () => {
+    const DATA = await StorageManager.getJSONServerData("last_update");
+    let powerUpdate = { biblioteca: "", refeitorio: "", alojamento: "", predio_pedagogico: "", centro_convivencia: "" };
+
+    DATA.filter(el => el.installation_name === "biblioteca").forEach(element => {
+      powerUpdate.biblioteca = ((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+    });
+    DATA.filter(el => el.installation_name === "refeitorio").forEach(element => {
+      powerUpdate.refeitorio = ((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+    });
+    DATA.filter(el => el.installation_name === "alojamento").forEach(element => {
+      powerUpdate.alojamento = ((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+    });
+    DATA.filter(el => el.installation_name === "predio_pedagogico").forEach(element => {
+      powerUpdate.predio_pedagogico = ((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+    });
+    DATA.filter(el => el.installation_name === "centro_convivencia").forEach(element => {
+      powerUpdate.centro_convivencia = ((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+    });
+    setMonitorData(powerUpdate);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(async () => {
+      await updateMonitorData();
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="container">
@@ -17,25 +49,35 @@ function Monitor() {
       <div className="container-monitor">
         <div className="container-elements">
           <div className="wrapper-elements">
-            <div onClick={()=>{toDevicePage("biblioteca")}} className="monitor-element">
-              <label className="txt-element"> Biblioteca (700W) </label>
-            </div>
+            <MonitorElement
+              installation_name="Biblioteca"
+              onClick={deviceData.biblioteca === "" ? null : () => toDevicePage("biblioteca")}
+              last_update={deviceData.biblioteca}
+            />
             <div className="monitor-element-spacing"></div>
-            <div onClick={()=>{toDevicePage("refeitorio")}} className="monitor-element">
-              <label className="txt-element"> Refeitório (Offline) </label>
-            </div>
+            <MonitorElement
+              installation_name="Refeitório"
+              onClick={deviceData.refeitorio === "" ? null : () => toDevicePage("refeitorio")}
+              last_update={deviceData.refeitorio}
+            />
             <div className="monitor-element-spacing"></div>
-            <div onClick={()=>{toDevicePage("alojamento")}} className="monitor-element">
-              <label className="txt-element"> Alojamento (Offline) </label>
-            </div>
+            <MonitorElement
+              installation_name="Alojamento"
+              onClick={deviceData.alojamento === "" ? null : () => toDevicePage("alojamento")}
+              last_update={deviceData.alojamento}
+            />
             <div className="monitor-element-spacing"></div>
-            <div onClick={()=>{toDevicePage("predio-pedagogico")}} className="monitor-element">
-              <label className="txt-element"> Prédio Pedagógico (Offline) </label>
-            </div>
+            <MonitorElement
+              installation_name="Prédio Pedagógico"
+              onClick={deviceData.predio_pedagogico === "" ? null : () => toDevicePage("predio_pedagogico")}
+              last_update={deviceData.predio_pedagogico}
+            />
             <div className="monitor-element-spacing"></div>
-            <div onClick={()=>{toDevicePage("centro-convivencia")}} className="monitor-element">
-              <label className="txt-element"> Centro de Convivência (Offline) </label>
-            </div>
+            <MonitorElement
+              installation_name="Centro de Convivência"
+              onClick={deviceData.centro_convivencia === "" ? null : () => toDevicePage("centro_convivencia")}
+              last_update={deviceData.centro_convivencia}
+            />
           </div>
         </div>
       </div>
