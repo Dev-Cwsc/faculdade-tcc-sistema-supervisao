@@ -1,42 +1,49 @@
 import "../styles/pages.css";
 import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
-//import { Link } from "react-router-dom";
-import Device from "../components/Device";
+// import Device from "../components/Device";
 import StorageManager from "../../services/StorageManager";
 import { useState, useEffect } from "react";
 
 function Devices() {
-  // const [deviceList, updateDeviceList] = useState([]);
+  const [deviceList, setDeviceList] = useState([]);
   const { state } = useLocation();
+
+  /*const listDevices = async () => {
+    
+    let array = [];
+    if (!DEVICES) {
+      array.push(<h1> Não existem dispositivos cadastrados. </h1>);
+    } else {
+      DEVICES.filter(el => el.installation_name === state).forEach(element => {
+        array.push(<h1>{element.device_name}</h1>);
+      });
+    }
+    return array;
+  }*/
 
   useEffect(() => {
     const timer = setInterval(async () => {
-      console.log('updating devices...')
+      const DEVICES = await StorageManager.getJSONServerData("devices");
+      let deviceArray = [];
+      if (!DEVICES) {
+        deviceArray.push(<h1> Não existem dispositivos cadastrados. </h1>);
+      } else {
+        DEVICES.filter(el => el.installation_name === state).forEach(element => {
+          deviceArray.push(<h1>{element.device_name}</h1>);
+        });
+      }
+      setDeviceList(deviceArray);
     }, 3000);
     return () => clearInterval(timer);
   }, []);
-
-  const listDevices = async () => {
-    let device = null;
-    const DEVICES = await StorageManager.getJSONServerData("devices").filter(el => el.installation_name === { state });
-    console.log({state})
-    if (!DEVICES) {
-      return <h1> Não há dispositivos cadastrados nessa instalação </h1>;
-    } else {
-      DEVICES.forEach(element => {
-        device = Device({ name: element.device_name, id: element.id });
-        return <device/>;
-      });
-    }
-  }
 
   return (
     <div className="container">
       <Navbar />
       <div className="container-monitor">
         <div className="wrapper-devices">
-          {listDevices}
+          {deviceList}
         </div>
       </div>
     </div>
