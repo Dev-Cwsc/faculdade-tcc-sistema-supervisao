@@ -1,6 +1,6 @@
 import React from "react"
 import "../styles/Device.css";
-const Device = ({ name, id, consumption, color }) => {
+const Device = ({ name, id, consumption, CH1state, CH2state }) => {
   return (
     <div className="container-device">
       <div className="container-device-title">
