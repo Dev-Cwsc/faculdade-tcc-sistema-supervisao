@@ -60,3 +60,24 @@
     cursor: pointer;
     background-color: #264c7e;
 }
+
+.device-btn-deactivated {
+    font-size: 15px;
+    border: none;
+    color: whitesmoke;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 35px;
+    background-color: #a43434;
+    border-radius: 25px;
+    margin-left: 10px;
+}
+
+.device-btn-deactivated:hover{
+    cursor: pointer;
+    background-color: #7e2626;
+}

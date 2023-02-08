@@ -26,9 +26,7 @@ html {
 .container-monitor {
     width: 100%;
     min-height: 100vh;
-    margin: 0 auto;
     background-color: #34a444;
-    align-items: center;
     justify-content: center;
     display: flex; /* Faz com que os elementos sejam mostrados um ao lado do outro */
     position: static;
@@ -44,7 +42,6 @@ html {
     display: flex;
     min-width: 1200px;
     min-height: 820px;
-    margin-top: 70px;
     position: static;
     justify-content: right;
     align-items: center;
@@ -83,6 +80,8 @@ html {
     background-color: whitesmoke;
     padding: 77px 55px 33px 55px;
     border-radius: 25px;
+    position: static;
+    margin-top: 140px;
 }
 
 .wrapper-elements {
@@ -96,6 +95,7 @@ html {
     width: 500px;
     height: 600px;
     background-color: #34a444;
+    margin-top: 140px;
 }
 
 .form-input-spacing {
