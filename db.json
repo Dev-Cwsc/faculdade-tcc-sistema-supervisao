@@ -14,6 +14,11 @@
       "id": "891279sacxah891239",
       "device_name": "Dispositivo teste 2",
       "installation_name": "biblioteca"
+    },
+    {
+      "id": "31231sd12",
+      "device_name": "Dispositivo teste 3",
+      "installation_name": "refeitorio"
     }
   ],
   "users": [

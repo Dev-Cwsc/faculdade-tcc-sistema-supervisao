@@ -24,23 +24,23 @@ function Monitor() {
 
     DATA.filter(el => el.installation_name === "biblioteca").forEach(element => {
       powerUpdate.biblioteca = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2 === "" ? 0 : element.measurement_ch1)) * 127).toFixed(2);
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
     });
     DATA.filter(el => el.installation_name === "refeitorio").forEach(element => {
       powerUpdate.refeitorio = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2 === "" ? 0 : element.measurement_ch1)) * 127).toFixed(2);
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
     });
     DATA.filter(el => el.installation_name === "alojamento").forEach(element => {
       powerUpdate.alojamento = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2 === "" ? 0 : element.measurement_ch1)) * 127).toFixed(2);
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
     });
     DATA.filter(el => el.installation_name === "predio_pedagogico").forEach(element => {
       powerUpdate.predio_pedagogico = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2 === "" ? 0 : element.measurement_ch1)) * 127).toFixed(2);
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
     });
     DATA.filter(el => el.installation_name === "centro_convivencia").forEach(element => {
       powerUpdate.centro_convivencia = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2 === "" ? 0 : element.measurement_ch1)) * 127).toFixed(2);
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
     });
     setMonitorData(powerUpdate);
   };
