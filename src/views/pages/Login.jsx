@@ -3,7 +3,6 @@ import "../styles/pages.css";
 import StorageManager from "../../services/StorageManager";
 import Input from "../components/Input";
 import FormBtn from "../components/FormBtn";
-import { Link } from "react-router-dom";
 
 function Login() {
   // hooks
@@ -47,10 +46,7 @@ function Login() {
           <div className="form-input-spacing"></div>
           <div className="form-input-spacing"></div>
           <FormBtn name="Login" />
-          <div className="container-label-cadastro">
-            <span className="txt-label-cadastro"> Não possui cadastro? </span>
-            <Link className="txt-link-cadastro" to="/newUser">Cadastrar</Link>
-          </div>
+          <div className="form-input-spacing"></div>
         </form>
       </div>
     </div>

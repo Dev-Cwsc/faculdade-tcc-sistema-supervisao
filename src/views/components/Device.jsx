@@ -15,7 +15,6 @@ const Device = ({ name, id, consumption, ch1_state, ch2_state }) => {
           </div>
         </div>
       </div>
-      <div className="device-spacing"></div>
     </div>
   )
 }

@@ -3,6 +3,7 @@
     height: 100px;
     background-color: whitesmoke;
     border-radius: 25px;
+    margin-bottom: 30px;
 }
 
 .container-device-title {
@@ -80,9 +81,4 @@
 .device-btn-deactivated:hover{
     cursor: pointer;
     background-color: #7e2626;
-}
-
-.device-spacing{
-    width: auto;
-    height: 30px;
 }

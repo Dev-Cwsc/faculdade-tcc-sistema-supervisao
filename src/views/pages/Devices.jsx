@@ -6,7 +6,13 @@ import StorageManager from "../../services/StorageManager";
 import { useState, useEffect } from "react";
 
 function Devices() {
-  const [deviceList, setDeviceList] = useState([<h1>Carregando...</h1>]);
+  const [deviceList, setDeviceList] = useState([
+
+    <div className="wrapper-loading-devices">
+      <h1 className="loading-devices-txt"> Carregando... </h1>
+    </div>
+
+  ]);
   const { state } = useLocation();
 
   useEffect(() => {
@@ -25,7 +31,7 @@ function Devices() {
             deviceArray.push(<Device
               name={element.device_name}
               id={element.id}
-              consumption={((parseFloat(update.measurement_ch1 === "" ? 0 : update.measurement_ch1) + parseFloat(update.measurement_ch2=== "" ? 0 : update.measurement_ch2)) * 127).toFixed(2)}
+              consumption={((parseFloat(update.measurement_ch1 === "" ? 0 : update.measurement_ch1) + parseFloat(update.measurement_ch2 === "" ? 0 : update.measurement_ch2)) * 127).toFixed(2)}
               ch1_state={update.measurement_ch1 !== "" ? "true" : "false"}
               ch2_state={update.measurement_ch2 !== "" ? "true" : "false"} />);
           } else {

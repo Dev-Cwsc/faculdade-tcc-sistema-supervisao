@@ -3,7 +3,7 @@ import "../styles/pages.css";
 import StorageManager from "../../services/StorageManager";
 import Input from "../components/Input";
 import FormBtn from "../components/FormBtn";
-import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Login() {
   // hooks
@@ -28,50 +28,48 @@ function Login() {
       setLogin(""); // Limpa os campos
       setPassword("");
       setCnfPassword("");
-      window.location.href = "/"; // Redireciona para a página principal
+      window.location.href = "/options"; // Redireciona para a página de opções
     } else { // Se não conseguir fazer o cadastro corretamente exibe uma mensagem de erro
       alert("Erro ao cadastrar usuário e senha");
     }
   }
 
   return (
-    <div className="container-login">
-      <div className="wrapper-login">
-        <img src={process.env.PUBLIC_URL + "/images/ifmg-completa.png"} className="img-ifmg" alt="IFMG" />
-        <form className="login-form" onSubmit={submitHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de cadastro */}
-          <h1 className="login-form-title"> Cadastro de novo usuário </h1>
-          <Input
-            type="text"
-            name="login-input-sign-up"
-            className={login}
-            onChange={(e) => setLogin(e.target.value)}
-            placeholder="Login *"
-          />
-          <div className="form-input-spacing"></div>
-          <Input
-            type="password"
-            name="password-input-sign-up"
-            className={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Senha *"
-          />
-          <label className="txt-label-password">(Pelo menos 8 caracteres, incluindo caracteres especiais, letras e números)</label>
-          <div className="form-input-spacing"></div>
-          <Input
-            type="password"
-            name="password-cnf-input-sign-up"
-            className={cnfPassword}
-            onChange={(e) => setCnfPassword(e.target.value)}
-            placeholder="Confirme sua senha *"
-          />
-          <div className="form-input-spacing"></div>
-          <div className="form-input-spacing"></div>
-          <FormBtn name="Cadastrar" />
-          <div className="container-label-cadastro">
-            <span className="txt-label-cadastro">Já possui cadastro? </span>
-            <Link className="txt-link-cadastro" to="/">Entrar</Link>
-          </div>
-        </form>
+    <div className="container">
+      <Navbar />
+      <div className="container-monitor">
+        <div className="wrapper-newDevice">
+          <form onSubmit={submitHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de cadastro */}
+            <h1 className="login-form-title"> Cadastro de novo usuário </h1>
+            <Input
+              type="text"
+              name="login-input-sign-up"
+              className={login}
+              onChange={(e) => setLogin(e.target.value)}
+              placeholder="Login *"
+            />
+            <div className="form-input-spacing"></div>
+            <Input
+              type="password"
+              name="password-input-sign-up"
+              className={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Senha *"
+            />
+            <label className="txt-label-password">(Pelo menos 8 caracteres, incluindo caracteres especiais, letras e números)</label>
+            <div className="form-input-spacing"></div>
+            <Input
+              type="password"
+              name="password-cnf-input-sign-up"
+              className={cnfPassword}
+              onChange={(e) => setCnfPassword(e.target.value)}
+              placeholder="Confirme sua senha *"
+            />
+            <div className="form-input-spacing"></div>
+            <div className="form-input-spacing"></div>
+            <FormBtn name="Cadastrar" />
+          </form>
+        </div>
       </div>
     </div>
   );

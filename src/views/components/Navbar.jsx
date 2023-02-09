@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 import StorageManager from "../../services/StorageManager";
-import "../styles/Navbar.css"
+import "../styles/Navbar.css";
 import NavBtn from "./NavBtn";
 
 const Navbar = () => {
@@ -21,9 +21,9 @@ const Navbar = () => {
       <ul>
         <h1> Bem vindo(a) ao Sistema de Monitoramento de Cargas, {`${user.toUpperCase()}!`} </h1>
         <NavBtn
-          to={getPathLocation() === "/newDevice" ? "/monitor" : "/newDevice"}
+          to={getPathLocation() === "/options" || getPathLocation() === "/newDevice" || getPathLocation() === "/newUser" ? "/monitor" : "/options"}
           name="nav-redirect-btn"
-          btnLabel={getPathLocation() === "/newDevice" ? "Cancelar" : "Novo Dispositivo"}
+          btnLabel={getPathLocation() === "/options" || getPathLocation() === "/newDevice" || getPathLocation() === "/newUser" ? "Cancelar" : "Opções"}
         />
 
         <NavBtn
