@@ -76,7 +76,7 @@ html {
 
 .wrapper-newDevice{
     width: 390px;
-    height: 600px;
+    height: fit-content;
     background-color: whitesmoke;
     padding: 77px 55px 33px 55px;
     border-radius: 25px;
@@ -116,6 +116,30 @@ html {
     padding: 30px;
     border-radius: 25px;
     border: 20px;
+}
+
+.wrapper-about{
+    width: 800px;
+    height: 600px;
+    min-width: 800px;
+    min-height: 600px;
+    background-color: whitesmoke;
+    padding: 77px 55px 33px 55px;
+    border-radius: 25px;
+    position: static;
+    margin-top: 140px;
+    display: table-column;
+    justify-content: center;
+}
+
+.wrapper-about-text{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    margin-bottom: 33px;
+    color: #5f5f5f;
 }
 
 .loading-devices-txt {

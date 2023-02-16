@@ -12,6 +12,8 @@ import NewDevice from "./views/pages/NewDevice";
 import Devices from "./views/pages/Devices";
 import Device from "./views/components/Device";
 import Options from "./views/pages/Options";
+import About from "./views/pages/About";
+import DeleteDevice from "./views/pages/DeleteDevice";
 
 const AppRoutes = () => {
   return (
@@ -21,9 +23,11 @@ const AppRoutes = () => {
         <Route element={<AuthenticationCheck />}> {/* Os componentes dentro dessa rota só serão renderizados se o usuário estiver autenticado */}
           <Route path="/monitor" element={<Monitor />} />
           <Route path="/newDevice" element={<NewDevice />} />
+          <Route path="/deleteDevice" element={<DeleteDevice />} />
           <Route path="/newUser" element={<NewUser />} />
           <Route path="/devices" element={<Devices />} />
           <Route path="/device" element={<Device />} />
+          <Route path="/about" element={<About />} />
           <Route path="/options" element={<Options />} />
         </Route>
       </Routes>

@@ -58,6 +58,7 @@ function NewDevice() {
             <div className="form-input-spacing"></div>
             <div className="form-input-spacing"></div>
             <FormBtn name="Cadastrar" />
+            <div className="form-input-spacing"></div>
           </form>
         </div>
       </div>
