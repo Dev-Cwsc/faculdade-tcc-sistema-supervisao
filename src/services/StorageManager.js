@@ -9,21 +9,30 @@ class StorageManager {
         const URL = "http://localhost:5000/" + key;
         const DATA = await axios.get(URL).then(response => response.data)
             .catch(error => {
-                console.error(error);
+                console.error(error.message);
             });
         return DATA;
     }
 
     static async setJSONServerData(key, data) {
         const URL = "http://localhost:5000/" + key;
-        await axios.post(URL,
-            data
-        )
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.error(error);
+        await axios.post(URL, data).then(response => {
+            console.log("Status code: " + response.status + ", Status text: " + response.statusText);
+        })
+            .catch(error => {
+                console.error(error.message);
+            });
+    }
+
+    static async deleteJSONServerData(key, id) {
+        const URL = "http://localhost:5000/" + key + "/" + id;
+        return await axios.delete(URL).then(response => {
+            console.log("Status code: " + response.status + ", Status text: " + response.statusText);
+            return true;
+        })
+            .catch(error => {
+                console.error(error.message);
+                return false;
             });
     }
 
@@ -44,7 +53,7 @@ class StorageManager {
         return true;
     }
 
-    static async registerDevice(id, name, installation){
+    static async registerDevice(id, name, installation) {
         const DEVICES = await this.getJSONServerData("devices");
         if (DEVICES.find(object => object.id === id)) {
             alert("Já existe um dispositivo cadastrado com esse id.");
@@ -52,6 +61,12 @@ class StorageManager {
         }
         await this.setJSONServerData("devices", { "id": id, "device_name": name, "installation_name": installation });
         return true;
+    }
+
+    static async deleteDevice(id) {
+        if (window.confirm("Realmente deseja excluir o dispositivo? Esta ação não poderá ser desfeita.")) {
+            return await this.deleteJSONServerData("devices", id);
+        }
     }
 
     static async setAuthenticationSS(login, password) {

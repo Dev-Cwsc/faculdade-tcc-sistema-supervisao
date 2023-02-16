@@ -48,7 +48,7 @@ function Monitor() {
   useEffect(() => {
     const timer = setInterval(async () => {
       await updateMonitorData();
-    }, 2000);
+    }, 1000);
     return () => clearInterval(timer);
   }, []);
 
@@ -60,31 +60,31 @@ function Monitor() {
           <div className="wrapper-elements">
             <MonitorElement
               installation_name="Biblioteca"
-              onClick={deviceData.biblioteca === "" || deviceData.biblioteca === "Carregando..." ? null : () => toDevicePage("biblioteca")}
+              onClick={deviceData.biblioteca === "Carregando..." ? null : () => toDevicePage("biblioteca")}
               last_update={deviceData.biblioteca}
             />
             <div className="monitor-element-spacing"></div>
             <MonitorElement
               installation_name="Refeitório"
-              onClick={deviceData.refeitorio === "" || deviceData.refeitorio === "Carregando..."? null : () => toDevicePage("refeitorio")}
+              onClick={deviceData.refeitorio === "Carregando..."? null : () => toDevicePage("refeitorio")}
               last_update={deviceData.refeitorio}
             />
             <div className="monitor-element-spacing"></div>
             <MonitorElement
               installation_name="Alojamento"
-              onClick={deviceData.alojamento === "" || deviceData.alojamento === "Carregando..." ? null : () => toDevicePage("alojamento")}
+              onClick={deviceData.alojamento === "Carregando..." ? null : () => toDevicePage("alojamento")}
               last_update={deviceData.alojamento}
             />
             <div className="monitor-element-spacing"></div>
             <MonitorElement
               installation_name="Prédio Pedagógico"
-              onClick={deviceData.predio_pedagogico === "" || deviceData.predio_pedagogico === "Carregando..." ? null : () => toDevicePage("predio_pedagogico")}
+              onClick={deviceData.predio_pedagogico === "Carregando..." ? null : () => toDevicePage("predio_pedagogico")}
               last_update={deviceData.predio_pedagogico}
             />
             <div className="monitor-element-spacing"></div>
             <MonitorElement
               installation_name="Centro de Convivência"
-              onClick={deviceData.centro_convivencia === "" || deviceData.centro_convivencia ? null : () => toDevicePage("centro_convivencia")}
+              onClick={deviceData.centro_convivencia === "Carregando..." ? null : () => toDevicePage("centro_convivencia")}
               last_update={deviceData.centro_convivencia}
             />
           </div>

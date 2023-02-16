@@ -14,12 +14,12 @@ function DeleteDevice() {
     if (id === "") { // Verifica se todos os campos estão preenchidos
       alert("É necessário inserir o ID do dispositivo para removê-lo do sistema."); // Se não estiverem, exibe uma mensagem de erro
       return;
-    } else if (await StorageManager.removeDevice(id)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
-      alert("Dispositivo removido com sucesso!"); // Exibe uma mensagem de sucesso
+    } else if (await StorageManager.deleteDevice(id)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
+      alert("Dispositivo excluído com sucesso!"); // Exibe uma mensagem de sucesso
       setId(""); // Limpa os campos
       window.location.href = "/monitor"; // Redireciona para a página principal
     } else { // Se não conseguir fazer o cadastro corretamente exibe uma mensagem de erro
-      alert("Erro ao tentar remover o dispositivo.");
+      alert("Erro ao tentar excluir o dispositivo.");
     }
   }
 

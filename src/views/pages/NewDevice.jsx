@@ -10,7 +10,7 @@ function NewDevice() {
   // hooks
   const [id, setId] = useState(""); // Estado de login
   const [name, setDeviceName] = useState(""); // Estado de senha
-  const [installation, setDeviceInstallation] = useState();
+  const [installation, setDeviceInstallation] = useState("biblioteca");
 
   const submitHandler = async (e) => {
     e.preventDefault(); // Evita que a página seja recarregada

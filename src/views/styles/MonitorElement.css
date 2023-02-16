@@ -30,14 +30,6 @@
     background-color: rgb(235, 235, 235);
 }
 
-.txt-element-offline{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px;
-    text-align: center;
-}
-
 .txt-element{
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
