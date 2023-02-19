@@ -16,6 +16,13 @@ function Devices() {
   ]);
   const { state } = useLocation();
 
+  const isDeviceOnline = (update) => {  // Verifica se o dispositivo está online ou offline
+    let c_date = new Date(); // Formato do timestamp 2023-02-19T14:24:32.921Z
+    // Se a diferença entre a hora atual e o último update for menor ou igual a 5 segundos, considera o dispositivo como online
+    let is_online = (c_date.getTime() - new Date(update).getTime())/1000 <= 5.0 ? true : false;
+    return is_online;
+  }
+
   useEffect(() => {
     const timer = setInterval(async () => {
       const DEVICES = await StorageManager.getJSONServerData("devices");
@@ -33,7 +40,7 @@ function Devices() {
       } else {
         DEVICES.filter(el => el.installation_name === state).forEach(element => {
           update = DATA.find(object => object.id === element.id);
-          if (update) {
+          if (update && isDeviceOnline(update.time)) {
             deviceArray.push(
               <Fragment key={element.id}>
                 <Device

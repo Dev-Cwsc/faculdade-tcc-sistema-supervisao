@@ -5,8 +5,8 @@ import axios from "axios";
 
 class StorageManager {
 
-    static async getJSONServerData(key) {
-        const URL = "http://localhost:5000/" + key;
+    static async getJSONServerData(path) {
+        const URL = "http://localhost:5000/" + path;
         const DATA = await axios.get(URL).then(response => response.data)
             .catch(error => {
                 console.error(error.message);
@@ -14,8 +14,8 @@ class StorageManager {
         return DATA;
     }
 
-    static async setJSONServerData(key, data) {
-        const URL = "http://localhost:5000/" + key;
+    static async setJSONServerData(path, data) {
+        const URL = "http://localhost:5000/" + path;
         await axios.post(URL, data).then(response => {
             console.log("Status code: " + response.status + ", Status text: " + response.statusText);
         })
@@ -24,8 +24,8 @@ class StorageManager {
             });
     }
 
-    static async deleteJSONServerData(key, id) {
-        const URL = "http://localhost:5000/" + key + "/" + id;
+    static async deleteJSONServerData(path, key) {
+        const URL = "http://localhost:5000/" + path + "/" + key;
         return await axios.delete(URL).then(response => {
             console.log("Status code: " + response.status + ", Status text: " + response.statusText);
             return true;
@@ -63,9 +63,9 @@ class StorageManager {
         return true;
     }
 
-    static async deleteDevice(id) {
+    static async deleteDevice(key) {
         if (window.confirm("Realmente deseja excluir o dispositivo? Esta ação não poderá ser desfeita.")) {
-            return await this.deleteJSONServerData("devices", id);
+            return await this.deleteJSONServerData("devices", key);
         }
     }
 

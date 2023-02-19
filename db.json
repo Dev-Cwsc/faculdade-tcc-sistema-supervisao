@@ -41,19 +41,17 @@
   "last_update": [
     {
       "id": "123456789",
-      "device_name": "testando api",
       "installation_name": "biblioteca",
-      "measurement_ch1": "5",
-      "measurement_ch2": "2",
-      "time": "00:00:00"
+      "measurement_ch1": 4.513719447498703,
+      "measurement_ch2": 3.353384454075712,
+      "time": "2023-02-19T21:36:14.055Z"
     },
     {
       "id": "987654321",
-      "device_name": "teste2",
       "installation_name": "refeitorio",
-      "measurement_ch1": "6",
-      "measurement_ch2": "2.7",
-      "time": "00:00:00"
+      "measurement_ch1": 3.3153804884544846,
+      "measurement_ch2": 3.4312189816775596,
+      "time": "2023-02-19T21:34:09.162Z"
     }
   ]
 }

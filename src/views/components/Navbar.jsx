@@ -21,9 +21,9 @@ const Navbar = () => {
       <ul>
         <h1> Bem vindo(a) ao Sistema de Monitoramento de Cargas, {`${user.toUpperCase()}!`} </h1>
         <NavBtn
-          to={getPathLocation() !== "/monitor" ? "/monitor" : "/options"}
+          to={getPathLocation() !== "/monitor" && getPathLocation() !== "/devices" ? "/monitor" : "/options"}
           name="nav-redirect-btn"
-          btnLabel={getPathLocation() !== "/monitor" ? "Cancelar" : "Opções"}
+          btnLabel={getPathLocation() !== "/monitor" && getPathLocation() !== "/devices" ? "Cancelar" : "Opções"}
         />
 
         <NavBtn

@@ -6,13 +6,19 @@ import { useNavigate } from "react-router-dom";
 import StorageManager from "../../services/StorageManager";
 
 function Monitor() {
-
   const [deviceData, setMonitorData] = useState({ biblioteca: "Carregando...", 
                                                   refeitorio: "Carregando...", 
                                                   alojamento: "Carregando...", 
                                                   predio_pedagogico: "Carregando...", 
                                                   centro_convivencia: "Carregando..." });
   const navigate = useNavigate();
+
+  const isDeviceOnline = (update) => {  // Verifica se o dispositivo está online ou offline
+    let c_date = new Date(); // Formato do timestamp 2023-02-19T14:24:32.921Z
+    // Se a diferença entre a hora atual e o último update for menor ou igual a 5 segundos, considera o dispositivo como online
+    let is_online = (c_date.getTime() - new Date(update).getTime())/1000 <= 5.0 ? true : false;
+    return is_online;
+  }
 
   const toDevicePage = (installation) => {
     navigate("/devices", { state: installation });
@@ -23,29 +29,29 @@ function Monitor() {
     let powerUpdate = { biblioteca: "", refeitorio: "", alojamento: "", predio_pedagogico: "", centro_convivencia: "" };
 
     DATA.filter(el => el.installation_name === "biblioteca").forEach(element => {
-      powerUpdate.biblioteca = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+      powerUpdate.biblioteca = isDeviceOnline(element.time) ? ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2) : "";
     });
     DATA.filter(el => el.installation_name === "refeitorio").forEach(element => {
-      powerUpdate.refeitorio = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+      powerUpdate.refeitorio = isDeviceOnline(element.time) ? ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2) : "";
     });
     DATA.filter(el => el.installation_name === "alojamento").forEach(element => {
-      powerUpdate.alojamento = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+      powerUpdate.alojamento = isDeviceOnline(element.time) ? ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2) : "";
     });
     DATA.filter(el => el.installation_name === "predio_pedagogico").forEach(element => {
-      powerUpdate.predio_pedagogico = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+      powerUpdate.predio_pedagogico = isDeviceOnline(element.time) ? ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2) : "";
     });
     DATA.filter(el => el.installation_name === "centro_convivencia").forEach(element => {
-      powerUpdate.centro_convivencia = ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
-      + parseFloat(element.measurement_ch2)) * 127).toFixed(2);
+      powerUpdate.centro_convivencia = isDeviceOnline(element.time) ? ((parseFloat(element.measurement_ch1 === "" ? 0 : element.measurement_ch1) 
+      + parseFloat(element.measurement_ch2)) * 127).toFixed(2) : "";
     });
     setMonitorData(powerUpdate);
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     const timer = setInterval(async () => {
       await updateMonitorData();
     }, 1000);
