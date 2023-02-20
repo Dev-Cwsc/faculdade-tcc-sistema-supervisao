@@ -25,13 +25,11 @@ function Devices() {
 
   useEffect(() => {
     const timer = setInterval(async () => {
-      const DEVICES = await StorageManager.getJSONServerData("devices");
-      const DATA = await StorageManager.getJSONServerData("last_update");
-      let update = null;
+      const DEVICES = await StorageManager.getDevices();
       let deviceArray = [];
       if (DEVICES.filter(el => el.installation_name === state).length === 0) {
         deviceArray.push(
-          <Fragment key="loading">
+          <Fragment key="empty">
             <div className="wrapper-loading-devices">
               <h1 className="loading-devices-txt"> Não há dispositivos cadastrados nessa instalação. </h1>
             </div>
@@ -39,16 +37,15 @@ function Devices() {
         );
       } else {
         DEVICES.filter(el => el.installation_name === state).forEach(element => {
-          update = DATA.find(object => object.id === element.id);
-          if (update && isDeviceOnline(update.time)) {
+          if (isDeviceOnline(element.last_update)) {
             deviceArray.push(
               <Fragment key={element.id}>
                 <Device
                   name={element.device_name}
                   id={element.id}
-                  consumption={((parseFloat(update.measurement_ch1 === "" ? 0 : update.measurement_ch1) + parseFloat(update.measurement_ch2 === "" ? 0 : update.measurement_ch2)) * 127).toFixed(2)}
-                  ch1_state={update.measurement_ch1 !== "" ? "true" : "false"}
-                  ch2_state={update.measurement_ch2 !== "" ? "true" : "false"} />
+                  consumption={((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2)}
+                  ch1_state={element.measurement_ch1 !== "" ? "true" : "false"}
+                  ch2_state={element.measurement_ch2 !== "" ? "true" : "false"} />
               </Fragment>
             );
           } else {

@@ -59,8 +59,20 @@ class StorageManager {
             alert("Já existe um dispositivo cadastrado com esse id.");
             return false;
         }
-        await this.setJSONServerData("devices", { "id": id, "device_name": name, "installation_name": installation });
+        await this.setJSONServerData("devices", { // Registra o dispositivo na lista de dispositivos
+            "id": id,
+            "device_name": name,
+            "installation_name": installation,
+            "measurement_ch1": 0,
+            "measurement_ch2": 0,
+            "last_update": new Date()
+        }); 
         return true;
+    }
+
+    static async getDevices() {
+        const DEVICES = await this.getJSONServerData("devices");
+        return DEVICES;
     }
 
     static async deleteDevice(key) {

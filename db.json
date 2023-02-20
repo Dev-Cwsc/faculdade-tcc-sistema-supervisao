@@ -2,23 +2,27 @@
   "devices": [
     {
       "id": "123456789",
-      "device_name": "testando api",
-      "installation_name": "biblioteca"
+      "device_name": "dispositivo de teste 1",
+      "installation_name": "biblioteca",
+      "measurement_ch1": 2.612518171845333,
+      "measurement_ch2": 4.897864160565817,
+      "last_update": "2023-02-20T18:48:53.638Z"
     },
     {
-      "id": "987654321",
-      "device_name": "teste2",
-      "installation_name": "refeitorio"
+      "id": "sdjljql142",
+      "device_name": "teste 1",
+      "installation_name": "refeitorio",
+      "measurement_ch1": 0,
+      "measurement_ch2": 0,
+      "last_update": "2023-02-20T18:31:36.131Z"
     },
     {
-      "id": "891279sacxah891239",
-      "device_name": "Dispositivo 2",
-      "installation_name": "biblioteca"
-    },
-    {
-      "id": "1923dashd221",
+      "id": "lsld1l23sda123",
       "device_name": "Dispositivo 4",
-      "installation_name": "alojamento"
+      "installation_name": "centro_convivencia",
+      "measurement_ch1": 0,
+      "measurement_ch2": 0,
+      "last_update": "2023-02-20T18:32:59.060Z"
     }
   ],
   "users": [
@@ -36,22 +40,6 @@
       "id": 3,
       "login": "teste",
       "password": "#testando123"
-    }
-  ],
-  "last_update": [
-    {
-      "id": "123456789",
-      "installation_name": "biblioteca",
-      "measurement_ch1": 5.856505891700794,
-      "measurement_ch2": 4.327370672652043,
-      "time": "2023-02-19T21:41:19.131Z"
-    },
-    {
-      "id": "987654321",
-      "installation_name": "refeitorio",
-      "measurement_ch1": 3.3153804884544846,
-      "measurement_ch2": 3.4312189816775596,
-      "time": "2023-02-19T21:34:09.162Z"
     }
   ]
 }
