@@ -1,12 +1,14 @@
 {
-  "devices": [
+  "3885893f3c95bd153cd3deebabdd1e493d7091b216ef8c15d28ec2ae2ab64b850c1182f1eebb16cf3e4bb11625bf1e04b70f5a31030547cdcdb3eb2a2e313682": [
     {
       "id": "123456789",
       "device_name": "dispositivo de teste 1",
       "installation_name": "biblioteca",
-      "measurement_ch1": 5.3687345304539775,
-      "measurement_ch2": 5.155762416087483,
-      "last_update": "2023-02-20T21:38:41.752Z"
+      "measurement_ch1": 2.413696990392634,
+      "measurement_ch2": 3.968980961667268,
+      "status_ch1": true,
+      "status_ch2": false,
+      "last_update": "2023-02-28T03:17:23.846Z"
     },
     {
       "id": "sdjljql142",
@@ -14,6 +16,8 @@
       "installation_name": "refeitorio",
       "measurement_ch1": 0,
       "measurement_ch2": 0,
+      "status_ch1": true,
+      "status_ch2": true,
       "last_update": "2023-02-20T18:31:36.131Z"
     },
     {
@@ -22,10 +26,12 @@
       "installation_name": "centro_convivencia",
       "measurement_ch1": 0,
       "measurement_ch2": 0,
+      "status_ch1": true,
+      "status_ch2": true,
       "last_update": "2023-02-20T18:32:59.060Z"
     }
   ],
-  "users": [
+  "bd66dd43529749d38e1eba3d52b7c49838ac5b29e03898a289ad05b4aa41fafc8eb2f952886a97c54c1b328de3a0111a7fb3c728fd116d4ede442ef20b6ce9b7": [
     {
       "id": 1,
       "login": "admin",

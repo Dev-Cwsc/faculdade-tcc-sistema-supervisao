@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthenticationCheck from "./controller/AuthenticationController";
 
 import Login from "./views/pages/Login";
-import NewUser from "./views/pages/NewUser";
 import Monitor from "./views/pages/Monitor";
 import NewDevice from "./views/pages/NewDevice";
+// import NewUser from "./views/pages/NewUser";
 import Devices from "./views/pages/Devices";
 import Options from "./views/pages/Options";
 import About from "./views/pages/About";
@@ -23,7 +23,7 @@ const AppRoutes = () => {
           <Route path="/monitor" element={<Monitor />} />
           <Route path="/newDevice" element={<NewDevice />} />
           <Route path="/deleteDevice" element={<DeleteDevice />} />
-          <Route path="/newUser" element={<NewUser />} />
+          {/** <Route path="/newUser" element={<NewUser />} /> */}
           <Route path="/devices" element={<Devices />} />
           <Route path="/about" element={<About />} />
           <Route path="/options" element={<Options />} />

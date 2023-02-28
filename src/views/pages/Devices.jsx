@@ -5,7 +5,7 @@ import Device from "../components/Device";
 import StorageManager from "../../services/StorageManager";
 import { useState, useEffect, Fragment } from "react";
 
-const ENDPOINT = "https://xn--richardsontrembo-snb.requestcatcher.com/"; // Antes de usar a aplicação é necessário configurar o endpoint que receberá as post requests
+const ENDPOINT = "https://www.requestcatcher.com/"; // Antes de usar a aplicação é necessário configurar o endpoint (dispositivo) que receberá as post requests
 
 function Devices() {
 
@@ -48,8 +48,8 @@ function Devices() {
                   consumption_ch1={parseFloat(element.measurement_ch1).toFixed(2)}
                   consumption_ch2={parseFloat(element.measurement_ch2).toFixed(2)}
                   consumption={((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2)}
-                  ch1_state={true}
-                  ch2_state={true}
+                  ch1_state={element.status_ch1}
+                  ch2_state={element.status_ch2}
                   endpoint={ENDPOINT}
                 />
               </Fragment>

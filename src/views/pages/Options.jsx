@@ -12,7 +12,7 @@ function Options() {
           <h1 className="login-form-title"> Selecione uma opção: </h1>
           <OptionsBtn name="new-device-page" btnLabel="Cadastrar dispositivo" to="/newDevice" />
           <OptionsBtn name="delete-device-page" btnLabel="Remover dispositivo" to="/deleteDevice" />
-          <OptionsBtn name="new-user-page" btnLabel="Cadastrar usuário" to="/newUser" />
+          {/** <OptionsBtn name="new-user-page" btnLabel="Cadastrar usuário" to="/newUser" /> */}
           <OptionsBtn name="about-page" btnLabel="Sobre" to="/about" />
           <div className="form-input-spacing"></div>
         </div>
