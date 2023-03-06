@@ -5,12 +5,14 @@ import axios from "axios";
 
 const HASH_DEVICES = "3885893f3c95bd153cd3deebabdd1e493d7091b216ef8c15d28ec2ae2ab64b850c1182f1eebb16cf3e4bb11625bf1e04b70f5a31030547cdcdb3eb2a2e313682";
 const HASH_USERS = "bd66dd43529749d38e1eba3d52b7c49838ac5b29e03898a289ad05b4aa41fafc8eb2f952886a97c54c1b328de3a0111a7fb3c728fd116d4ede442ef20b6ce9b7";
+const API = axios.create({
+    baseURL: "/api",
+});
 
 class StorageManager {
 
     static async getJSONServerData(path) {
-        const URL = "http://localhost:5000/" + path;
-        const DATA = await axios.get(URL).then(response => response.data)
+        const DATA = await API.get(path).then(response => response.data)
             .catch(error => {
                 console.error(error.message);
             });
@@ -18,8 +20,7 @@ class StorageManager {
     }
 
     static async setJSONServerData(path, data) {
-        const URL = "http://localhost:5000/" + path;
-        await axios.post(URL, data).then(response => {
+        await API.post(path, data).then(response => {
             console.log("Status code: " + response.status + ", Status text: " + response.statusText);
         })
             .catch(error => {
@@ -28,8 +29,7 @@ class StorageManager {
     }
 
     static async deleteJSONServerData(path, key) {
-        const URL = "http://localhost:5000/" + path + "/" + key;
-        return await axios.delete(URL).then(response => {
+        return await API.delete(path + "/" + key).then(response => {
             console.log("Status code: " + response.status + ", Status text: " + response.statusText);
             return true;
         })
@@ -69,7 +69,7 @@ class StorageManager {
             "measurement_ch1": 0,
             "measurement_ch2": 0,
             "last_update": new Date()
-        }); 
+        });
         return true;
     }
 

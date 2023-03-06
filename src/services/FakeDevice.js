@@ -7,7 +7,7 @@ function FakeDevice() {
         let ch1 = Math.random() * 6;
         let ch2 = Math.random() * 6;
 
-        const RESPONSE = await fetch("http://localhost:5000/" + HASH_DEVICES + "/" + process.argv[2], {
+        const RESPONSE = await fetch("http://localhost:3001/" + HASH_DEVICES + "/" + process.argv[2], {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

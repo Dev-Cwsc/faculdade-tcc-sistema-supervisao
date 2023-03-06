@@ -19,16 +19,6 @@
       "status_ch1": true,
       "status_ch2": true,
       "last_update": "2023-02-20T18:31:36.131Z"
-    },
-    {
-      "id": "lsld1l23sda123",
-      "device_name": "Dispositivo 4",
-      "installation_name": "centro_convivencia",
-      "measurement_ch1": 0,
-      "measurement_ch2": 0,
-      "status_ch1": true,
-      "status_ch2": true,
-      "last_update": "2023-02-20T18:32:59.060Z"
     }
   ],
   "bd66dd43529749d38e1eba3d52b7c49838ac5b29e03898a289ad05b4aa41fafc8eb2f952886a97c54c1b328de3a0111a7fb3c728fd116d4ede442ef20b6ce9b7": [
