@@ -7,7 +7,7 @@
 
 const char *SSID = "TCC - Sistema Modular";                    // Nome da rede Wi-Fi
 const char *PWD = "testando1997";                // Senha da rede Wi-Fi
-char *serverName = "http://10.0.0.100:3001/3885893f3c95bd153cd3deebabdd1e493d7091b216ef8c15d28ec2ae2ab64b850c1182f1eebb16cf3e4bb11625bf1e04b70f5a31030547cdcdb3eb2a2e313682"; // Endereço do servidor
+char *serverName = "http://192.168.189.39:3001/3885893f3c95bd153cd3deebabdd1e493d7091b216ef8c15d28ec2ae2ab64b850c1182f1eebb16cf3e4bb11625bf1e04b70f5a31030547cdcdb3eb2a2e313682"; // Endereço do servidor
 const long interval = 1000;                         // Intervalo de tempo entre as execuções em milissegundos
 unsigned long time_now = 0;                         // Armazena o tempo da última execução
 String data = "";
