@@ -52,11 +52,14 @@ void loop() {
   {
     time_now = millis();
     data = "";
-    irms = SCT013.calcIrms(1480);
-    data += String(irms, 2) + ";";              // Mede a corrente no sensor
-    //data += String((irms * VOLTAGE), 2) + ";";  // Calcula o valor da potência de consumo no momento
-    //data += String(digitalRead(RLY_PIN1)) + ";";
-    //data += String(digitalRead(RLY_PIN2)) + ";";
+    irms = SCT013.calcIrms(1480); // Mede a corrente no sensor
+    data += "1psik1p29s12;"; // ID do dispositivo
+    data += "modulo_cc_v1;"; // Nome do dispositivo
+    data += "biblioteca;"; // Nome da instalação
+    data += String(irms, 2)+ ";"; // Medição canal 1
+    data += "0;"; // Medição canal 2
+    data += String(digitalRead(RLY_PIN1)) + ";"; // Status canal 1
+    data += String(digitalRead(RLY_PIN2)) + ";"; // Status canal 2
     bluetooth.print(data);  // Envia os dados de medição de corrente e potência via bluetooth
   }
 }

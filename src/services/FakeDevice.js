@@ -1,4 +1,4 @@
-// Comando para usar: node FakeDevice.js "id_dispositivo" "nome_dispositivo" "nome_instalação"
+// Comando exemplo para usar: node FakeDevice.js 123456789 "dispositivo de teste 1" "biblioteca" (node FakeDevice.js "id_dispositivo" "nome_dispositivo" "nome_instalação")
 const HASH_DEVICES = "3885893f3c95bd153cd3deebabdd1e493d7091b216ef8c15d28ec2ae2ab64b850c1182f1eebb16cf3e4bb11625bf1e04b70f5a31030547cdcdb3eb2a2e313682";
 
 function FakeDevice() {
