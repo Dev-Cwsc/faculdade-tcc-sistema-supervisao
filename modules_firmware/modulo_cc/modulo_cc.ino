@@ -59,7 +59,7 @@ void loop() {
     data += String(irms, 2)+ ";"; // Medição canal 1
     data += "0;"; // Medição canal 2
     data += String(digitalRead(RLY_PIN1)) + ";"; // Status canal 1
-    data += String(digitalRead(RLY_PIN2)) + ";"; // Status canal 2
+    data += String(digitalRead(RLY_PIN2)) + ";\n"; // Status canal 2
     bluetooth.print(data);  // Envia os dados de medição de corrente e potência via bluetooth
   }
 }
