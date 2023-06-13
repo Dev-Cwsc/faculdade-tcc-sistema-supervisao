@@ -5,9 +5,9 @@ import Input from "../components/Input";
 import FormBtn from "../components/FormBtn";
 
 function Login() {
-  // hooks
-  const [login, setLogin] = useState(""); // Conforme o usuário digita, atualiza o campo de login
-  const [password, setPassword] = useState(""); // Conforme o usuário digita, atualiza o campo de senha
+  // UseState hooks
+  const [login, setLogin] = useState(""); // Conforme o usuário digita, atualiza o campo de login e senha
+  const [password, setPassword] = useState("");
 
   const loginHandler = async (e) => {
     e.preventDefault();

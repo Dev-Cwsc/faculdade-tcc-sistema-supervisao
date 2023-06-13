@@ -5,7 +5,6 @@ import Device from "../components/Device";
 import StorageManager from "../../services/StorageManager";
 import { useState, useEffect, Fragment } from "react";
 
-const ESP_ROUTE = "15a74e6be4b831195ecbfd751a2950bf4a65730efb626ea9e6bd0b75e518a53a50ebfefbf6e2705a1f6e45608ea7d3382c6836334eeb054cee58982f86954af3";
 const ENDPOINT = "https://www.requestcatcher.com/"; // Antes de usar a aplicação é necessário configurar o endpoint (dispositivo) que receberá as post requests
 
 function Devices() {
