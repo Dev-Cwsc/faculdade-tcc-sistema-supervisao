@@ -8,8 +8,8 @@ import SelectionMenu from "../components/SelectionMenu";
 
 function NewDevice() {
   // hooks
-  const [id, setId] = useState(""); // Estado de login
-  const [name, setDeviceName] = useState(""); // Estado de senha
+  const [id, setId] = useState(""); 
+  const [name, setDeviceName] = useState(""); 
   const [installation, setDeviceInstallation] = useState("biblioteca");
 
   const submitHandler = async (e) => {
