@@ -8,18 +8,16 @@ import SelectionMenu from "../components/SelectionMenu";
 
 function NewDevice() {
   // hooks
-  const [id, setId] = useState(""); // Estado de login
-  const [name, setDeviceName] = useState(""); // Estado de senha
+  const [name, setDeviceName] = useState("");
   const [installation, setDeviceInstallation] = useState("biblioteca");
 
   const submitHandler = async (e) => {
     e.preventDefault(); // Evita que a página seja recarregada
-    if (id === "" || name === "") { // Verifica se todos os campos estão preenchidos
-      alert("Preencha todos os campos."); // Se não estiverem, exibe uma mensagem de erro
+    if (name === "") { // Verifica se todos os campos estão preenchidos
+      alert("Dê um nome ao dispositivo."); // Se não estiverem, exibe uma mensagem de erro
       return;
-    } else if (await StorageManager.registerDevice(id, name, installation)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
+    } else if (await StorageManager.registerDevice(name, installation)) { // Se todos os requisitos forem atendidos, tenta criar o usuário
       alert("Dispositivo cadastrado com sucesso!"); // Exibe uma mensagem de sucesso
-      setId(""); // Limpa os campos
       setDeviceName("");
       window.location.href = "/monitor"; // Redireciona para a página principal
     } else { // Se não conseguir fazer o cadastro corretamente exibe uma mensagem de erro
@@ -34,14 +32,6 @@ function NewDevice() {
         <div className="wrapper-newDevice">
           <form onSubmit={submitHandler}> {/* Função manipuladora que é acionada ao submeter o formulário de cadastro */}
             <h1 className="login-form-title"> Cadastro de novo dispositivo </h1>
-            <Input
-              type="text"
-              name="device-id-input"
-              className={id}
-              onChange={(e) => setId(e.target.value)}
-              placeholder="ID do dispositivo *"
-            />
-            <div className="form-input-spacing"></div>
             <Input
               type="text"
               name="device-name-input"

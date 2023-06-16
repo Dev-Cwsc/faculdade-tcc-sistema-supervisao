@@ -7,7 +7,7 @@ function FakeDevice() {
         let ch1 = Math.random() * 6;
         let ch2 = Math.random() * 6;
 
-        const RESPONSE = await fetch("http://localhost:3001/" + HASH_DEVICES + "/" + process.argv[2], {
+        const RESPONSE = await fetch("http://localhost:8080/device/measurement", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -15,13 +15,13 @@ function FakeDevice() {
             body: JSON.stringify(
                 {
                     "id": process.argv[2],
-                    "device_name": process.argv[3],
-                    "installation_name": String(process.argv[4]),
-                    "measurement_ch1": ch1,
-                    "measurement_ch2": ch2,
-                    "status_ch1": true,
-                    "status_ch2": false,
-                    "last_update": c_date
+                    "deviceName": process.argv[3],
+                    "installationName": String(process.argv[4]),
+                    "measurementCH1": ch1,
+                    "measurementCH2": ch2,
+                    "lastCH1Status": true,
+                    "lastCH2Status": false,
+                    "lastUpdate": c_date
                 }
             )
         });

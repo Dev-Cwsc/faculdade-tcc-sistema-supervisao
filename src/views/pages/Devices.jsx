@@ -19,17 +19,17 @@ function Devices() {
   const { state } = useLocation();
 
   const isDeviceOnline = (update) => {  // Verifica se o dispositivo está online ou offline
-    let c_date = new Date(); // Formato do timestamp 2023-02-19T14:24:32.921Z
+    let currentDate = new Date(); // Formato do timestamp 2023-02-19T14:24:32.921Z
     // Se a diferença entre a hora atual e o último update for menor ou igual a 5 segundos, considera o dispositivo como online
-    let is_online = (c_date.getTime() - new Date(update).getTime()) / 1000 <= 5.0 ? true : false;
-    return is_online;
+    let isOnline = (currentDate.getTime() - new Date(update).getTime()) / 1000 <= 5.0 ? true : false;
+    return isOnline;
   }
 
   useEffect(() => {
     const timer = setInterval(async () => {
       const DEVICES = await StorageManager.getDevices();
       let deviceArray = [];
-      if (DEVICES.filter(el => el.installation_name === state).length === 0) {
+      if (DEVICES.filter(el => el.installationName === state).length === 0) {
         deviceArray.push(
           <Fragment key="empty">
             <div className="wrapper-loading-devices">
@@ -38,18 +38,18 @@ function Devices() {
           </Fragment>
         );
       } else {
-        DEVICES.filter(el => el.installation_name === state).forEach(element => {
-          if (isDeviceOnline(element.last_update)) {
+        DEVICES.filter(el => el.installationName === state).forEach(element => {
+          if (isDeviceOnline(element.lastUpdate)) {
             deviceArray.push(
               <Fragment key={element.id}>
                 <Device
-                  name={element.device_name}
+                  name={element.deviceName}
                   id={element.id}
-                  consumption_ch1={parseFloat(element.measurement_ch1).toFixed(2)}
-                  consumption_ch2={parseFloat(element.measurement_ch2).toFixed(2)}
-                  consumption={((parseFloat(element.measurement_ch1) + parseFloat(element.measurement_ch2)) * 127).toFixed(2)}
-                  ch1_state={element.status_ch1}
-                  ch2_state={element.status_ch2}
+                  consumption_ch1={parseFloat(element.measurementCH1).toFixed(2)}
+                  consumption_ch2={parseFloat(element.measurementCH2).toFixed(2)}
+                  consumption={((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127).toFixed(2)}
+                  ch1_state={element.lastCH1Status}
+                  ch2_state={element.lastCH2Status}
                   endpoint={ENDPOINT}
                 />
               </Fragment>
@@ -58,7 +58,7 @@ function Devices() {
             deviceArray.push(
               <Fragment key={element.id}>
                 <Device
-                  name={element.device_name}
+                  name={element.deviceName}
                   id={element.id}
                   consumption_ch1="0"
                   consumption_ch2="0"
