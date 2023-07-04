@@ -29,7 +29,7 @@ function Devices() {
     const timer = setInterval(async () => {
       const DEVICES = await StorageManager.getDevices();
       let deviceArray = [];
-      if (DEVICES.filter(el => el.installationName === state).length === 0) {
+      if (DEVICES.filter(el => el.installation === state).length === 0) {
         deviceArray.push(
           <Fragment key="empty">
             <div className="wrapper-loading-devices">
@@ -38,18 +38,18 @@ function Devices() {
           </Fragment>
         );
       } else {
-        DEVICES.filter(el => el.installationName === state).forEach(element => {
-          if (isDeviceOnline(element.lastUpdate)) {
+        DEVICES.filter(el => el.installation === state).forEach(element => {
+          if (isDeviceOnline(element.updateTime)) {
             deviceArray.push(
               <Fragment key={element.id}>
                 <Device
-                  name={element.deviceName}
+                  name={element.device}
                   id={element.id}
                   consumption_ch1={parseFloat(element.measurementCH1).toFixed(2)}
                   consumption_ch2={parseFloat(element.measurementCH2).toFixed(2)}
                   consumption={((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127).toFixed(2)}
-                  ch1_state={element.lastCH1Status}
-                  ch2_state={element.lastCH2Status}
+                  ch1_state={element.ch1Status}
+                  ch2_state={element.ch2Status}
                   endpoint={ENDPOINT}
                 />
               </Fragment>
@@ -58,7 +58,7 @@ function Devices() {
             deviceArray.push(
               <Fragment key={element.id}>
                 <Device
-                  name={element.deviceName}
+                  name={element.device}
                   id={element.id}
                   consumption_ch1="0"
                   consumption_ch2="0"

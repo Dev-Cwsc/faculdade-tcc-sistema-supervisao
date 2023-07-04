@@ -30,31 +30,31 @@ function Monitor() {
     const DATA = await StorageManager.getDevices();
     let powerUpdate = { biblioteca: "", refeitorio: "", alojamento: "", predio_pedagogico: "", centro_convivencia: "" };
 
-    DATA.filter(el => el.installationName === "biblioteca").forEach(element => {
-      if (isDeviceOnline(element.lastUpdate)) {
+    DATA.filter(el => el.installation === "biblioteca").forEach(element => {
+      if (isDeviceOnline(element.updateTime)) {
         powerUpdate.biblioteca = parseFloat(parseFloat(powerUpdate.biblioteca === "" ? 0 : powerUpdate.biblioteca)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
-    DATA.filter(el => el.installationName === "refeitorio").forEach(element => {
+    DATA.filter(el => el.installation === "refeitorio").forEach(element => {
       if (isDeviceOnline(element.lastUpdate)) {
         powerUpdate.refeitorio = parseFloat(parseFloat(powerUpdate.refeitorio === "" ? 0 : powerUpdate.refeitorio)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
-    DATA.filter(el => el.installationName === "alojamento").forEach(element => {
+    DATA.filter(el => el.installation === "alojamento").forEach(element => {
       if (isDeviceOnline(element.lastUpdate)) {
         powerUpdate.alojamento = parseFloat(parseFloat(powerUpdate.alojamento === "" ? 0 : powerUpdate.alojamento)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
-    DATA.filter(el => el.installationName === "predio_pedagogico").forEach(element => {
+    DATA.filter(el => el.installation === "predio_pedagogico").forEach(element => {
       if (isDeviceOnline(element.lastUpdate)) {
         powerUpdate.predio_pedagogico = parseFloat(parseFloat(powerUpdate.predio_pedagogico === "" ? 0 : powerUpdate.predio_pedagogico)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
-    DATA.filter(el => el.installationName === "centro_convivencia").forEach(element => {
+    DATA.filter(el => el.installation === "centro_convivencia").forEach(element => {
       if (isDeviceOnline(element.lastUpdate)) {
         powerUpdate.centro_convivencia = parseFloat(parseFloat(powerUpdate.centro_convivencia === "" ? 0 : powerUpdate.centro_convivencia)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);

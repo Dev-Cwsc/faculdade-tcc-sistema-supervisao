@@ -17,8 +17,8 @@ function FakeDevice() {
                     "installation": String(process.argv[4]),
                     "measurementCH1": ch1,
                     "measurementCH2": ch2,
-                    "CH1Status": true,
-                    "CH2Status": false
+                    "ch1Status": true,
+                    "ch2Status": false
                 }
             )
         });

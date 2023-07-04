@@ -39,7 +39,7 @@ class StorageManager {
 
     static async getUserFromDB(login, password) { // Retorna o usuário com o login e senha especificados, ou false caso contrário
         const USERS = await this.getData("/user");
-        return JSON.stringify(USERS) === "[]" ? false : USERS.find(object => object.login === login && object.password === password);
+        return JSON.stringify(USERS) === "[]" ? false : USERS.find(object => object.userLogin === login && object.userPassword === password);
     }
 
     static async registerUser(login, password) {
