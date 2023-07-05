@@ -8,7 +8,7 @@ This application allows (with the necessary adaptations in the implementation) m
 
 # Como usar?
 
-**_Obs:_** É necessário usar uma API que seja compatível e funcione como backend em conjunto com essa aplicação. Caso queira, você pode baixar a [API](https://github.com/Dev-Cwsc/java-spring-restfull-api) que estou desenvolvendo.
+**_Obs:_** É necessário usar uma API que seja compatível e funcione como backend em conjunto com essa aplicação. Caso queira, você pode baixar a [API que estou desenvolvendo](https://github.com/Dev-Cwsc/java-spring-restfull-api).
 
 * Certifique-se de que o backend está funcionando corretamente
 * Instale o [Node.js](https://nodejs.org/en/)
