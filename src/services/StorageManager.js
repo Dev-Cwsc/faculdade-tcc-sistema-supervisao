@@ -45,22 +45,22 @@ class StorageManager {
     static async registerUser(login, password) {
         const USERS = await this.getData("/user");
         if (JSON.stringify(USERS) !== "[]") {
-            if (USERS.find(object => object.login === login)) {
+            if (USERS.find(object => object.userLogin === login)) {
                 alert("Já existe um usuário cadastrado com esse login.");
                 return false;
             }
         }
         await this.setData("/user", {
-            "login": login,
-            "password": password
+            "userLogin": login,
+            "userPassword": password
         });
         return true;
     }
 
     static async registerDevice(name, installation) {
         await this.setData("/device", { // Registra o dispositivo na lista de dispositivos
-            "deviceName": name,
-            "installationName": installation
+            "device": name,
+            "installation": installation
         });
         return true;
     }

@@ -1,9 +1,9 @@
-// Comando exemplo para usar: node FakeDevice.js 123456789 "dispositivo de teste 1" "biblioteca" (node FakeDevice.js "id_dispositivo" "nome_dispositivo" "nome_instalação")
+// Comando exemplo para usar: node FakeDevice.js 1 true false (node FakeDevice.js "id_dispositivo" "status_canal_1" "status_canal_2")
 
 function FakeDevice() {
     setInterval(async () => {
-        let ch1 = Math.random() * 6;
-        let ch2 = Math.random() * 6;
+        let ch1 = process.argv[3] === "true" ? Math.random() * 6 : 0;
+        let ch2 = process.argv[4] === "true" ? Math.random() * 6 : 0;
 
         const RESPONSE = await fetch("http://localhost:8080/device/measurement", {
             method: "PUT",
@@ -13,12 +13,10 @@ function FakeDevice() {
             body: JSON.stringify(
                 {
                     "id": process.argv[2],
-                    "device": process.argv[3],
-                    "installation": String(process.argv[4]),
                     "measurementCH1": ch1,
                     "measurementCH2": ch2,
-                    "ch1Status": true,
-                    "ch2Status": false
+                    "ch1Status": process.argv[3] === "true" ? process.argv[3] : false,
+                    "ch2Status": process.argv[4] === "true" ? process.argv[4] : false
                 }
             )
         });

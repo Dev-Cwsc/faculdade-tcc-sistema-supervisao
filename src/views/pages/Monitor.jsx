@@ -37,25 +37,25 @@ function Monitor() {
       }
     });
     DATA.filter(el => el.installation === "refeitorio").forEach(element => {
-      if (isDeviceOnline(element.lastUpdate)) {
+      if (isDeviceOnline(element.updateTime)) {
         powerUpdate.refeitorio = parseFloat(parseFloat(powerUpdate.refeitorio === "" ? 0 : powerUpdate.refeitorio)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
     DATA.filter(el => el.installation === "alojamento").forEach(element => {
-      if (isDeviceOnline(element.lastUpdate)) {
+      if (isDeviceOnline(element.updateTime)) {
         powerUpdate.alojamento = parseFloat(parseFloat(powerUpdate.alojamento === "" ? 0 : powerUpdate.alojamento)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
     DATA.filter(el => el.installation === "predio_pedagogico").forEach(element => {
-      if (isDeviceOnline(element.lastUpdate)) {
+      if (isDeviceOnline(element.updateTime)) {
         powerUpdate.predio_pedagogico = parseFloat(parseFloat(powerUpdate.predio_pedagogico === "" ? 0 : powerUpdate.predio_pedagogico)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
     });
     DATA.filter(el => el.installation === "centro_convivencia").forEach(element => {
-      if (isDeviceOnline(element.lastUpdate)) {
+      if (isDeviceOnline(element.updateTime)) {
         powerUpdate.centro_convivencia = parseFloat(parseFloat(powerUpdate.centro_convivencia === "" ? 0 : powerUpdate.centro_convivencia)
           + ((parseFloat(element.measurementCH1) + parseFloat(element.measurementCH2)) * 127)).toFixed(2);
       }
